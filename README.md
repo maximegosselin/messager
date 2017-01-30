@@ -27,13 +27,7 @@ $ composer require maximegosselin/messager
 
 ## Documentation
 
-### Basics
-
-- A `MessageBus` handles a `$message` and delgates it to its `$core` message handler through middlewares.
-- A `$message` can be anything but in most cases, it is an object.
-- A `MiddlewareInterface` object
-
-### Quick example
+### Usage overview
 
 ```php
 use MaximeGosselin\Messager\MessageBus;
@@ -48,7 +42,7 @@ $bus = $bus->withMiddleware(new MyApp\MyMiddleware());
 $bus->handle(new MyApp\MyMessage());
 ```
 
-### Other examples
+### Examples
 
 See [/examples](examples/) for real-world implementation examples.
 
