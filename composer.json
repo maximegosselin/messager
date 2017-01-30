@@ -1,0 +1,39 @@
+{
+    "name": "maximegosselin/messager",
+    "type": "library",
+    "description": "Lightweight and unrestrictive Message Bus implementation.",
+    "homepage": "https://github.com/maximegosselin/messager",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxime Gosselin",
+            "email": "maximegosselin@hotmail.com",
+            "homepage": "https://github.com/maximegosselin",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.1"
+    },
+    "require-dev": {
+        "phing/phing": "~2",
+        "phpunit/phpunit": "~5",
+        "squizlabs/php_codesniffer": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaximeGosselin\\Messager\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MaximeGosselin\\Messager\\Test\\": "test"
+        }
+    },
+    "scripts": {
+        "build": "phing",
+        "test": "phpunit --coverage-text",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src test examples",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src test examples"
+    }
+}
