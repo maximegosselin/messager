@@ -1,9 +1,9 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace MaximeGosselin\Messager;
 
-final class MessageBus implements MessageHandlerInterface, MiddlewareStackInterface
+final class MessageBus implements MessageBusInterface, MessageHandlerInterface, MiddlewareStackInterface
 {
     /**
      * @var MessageHandlerInterface
@@ -26,6 +26,11 @@ final class MessageBus implements MessageHandlerInterface, MiddlewareStackInterf
     public function __construct(?MessageHandlerInterface $core = null)
     {
         $this->core = $core ?? new NoopMessageHandler();
+    }
+
+    public function getCore(): MessageHandlerInterface
+    {
+        return $this->core;
     }
 
     public function handle($message): void
